@@ -5,22 +5,8 @@ services:
     build: ./backend
     ports:
       - "5000:5000"
-    depends_on:
-      - db
     environment:
       - FLASK_ENV=development
-
-  db:
-    image: postgres:15
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: mi_basededatos
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
 
   frontend:
     image: nginx:alpine
