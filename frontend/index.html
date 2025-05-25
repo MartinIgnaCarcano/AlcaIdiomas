@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcaidiomas - Academia de Idiomas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function renderSessionMenu() {
+            const user = localStorage.getItem("token");
+            const navItem = document.getElementById("nav-session-item");
+            const registerSection = document.getElementById('registro');
+
+            if (user) {
+                navItem.innerHTML = `<a class="nav-link" href="perfil.html">Mi Perfil</a>`;
+                document.getElementById("nav-registro").style.display = "none";
+                document.getElementById('btn-register-hero').style.display = 'none';
+                document.getElementById('logoutBtn').style.display = 'block';
+                registerSection.style.display = 'none'
+            } else {
+                navItem.innerHTML = `<a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>`;
+                document.getElementById("nav-registro").style.display = "block";
+                document.getElementById('btn-register-hero').style.display = 'block';
+                document.getElementById('logoutBtn').style.display = 'none';
+                registerSection.style.display = 'block'
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", renderSessionMenu);
+    </script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><span class="text-red">Alca</span><span
+                    class="text-yellow">idiomas</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cursos">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#por-que-nosotros">¿Por qué nosotros?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonios">Testimonios</a>
+                    </li>
+                    <li class="nav-item" id="nav-registro">
+                        <a class="nav-link" href="#registro">Registro</a>
+                    </li>
+                    <li class="nav-item" id="nav-session-item">
+                        <!-- Esto se llenará dinámicamente con JavaScript -->
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link" id="logoutBtn" href="#">Cerrar Sesión</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1>Descubre un mundo de oportunidades con nuevos idiomas</h1>
+                    <p>En Alcaidiomas te ofrecemos una experiencia educativa única con profesores nativos, metodología
+                        efectiva y clases adaptadas a tus necesidades.</p>
+                    <div>
+                        <a href="#registro" class="btn btn-primary" id="btn-register-hero">Registrarse</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-5" id="cursos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestros Cursos de Idiomas</h2>
+                <p>Aprende a comunicarte con fluidez y confianza en un nuevo idioma con nuestra metodología práctica y
+                    efectiva</p>
+            </div>
+
+
+            <div class="row g-4">
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100" onclick="window.open('ingles.html','_blank')">
+                        <div class="card-img-container">
+                            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac" class="card-img-top"
+                                alt="Inglés">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Inglés</h5>
+                            <p class="card-text">Intensivo de 4 meses con preparación TOEFL e IELTS. Clases diarias y
+                                plataforma 24/7.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100" onclick="window.open('frances.html','_blank')">
+                        <div class="card-img-container">
+                            <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063" class="card-img-top"
+                                alt="Francés">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Francés</h5>
+                            <p class="card-text">Clases comunicativas con profesores nativos. Duración: 3–9 meses, 15
+                                h/semana.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100" onclick="window.open('italiano.html','_blank')">
+                        <div class="card-img-container">
+                            <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063" class="card-img-top"
+                                alt="Italiano">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Italiano</h5>
+                            <p class="card-text">Desde cero hasta nivel conversacional. 3–9 meses y certificación
+                                oficial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100" onclick="window.open('chino.html','_blank')">
+                        <div class="card-img-container">
+                            <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063" class="card-img-top"
+                                alt="Chino Mandarín">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Chino Mandarín</h5>
+                            <p class="card-text">Enfoque en negocios. 6–18 meses, 15 h/semana y certificación oficial.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="features py-5 bg-light" id="por-que-nosotros">
+        <div class="container">
+            <div class="section-header">
+                <h2>¿Por qué elegir Alcaidiomas?</h2>
+                <p>Nuestro método ha ayudado a miles de estudiantes a dominar nuevos idiomas de manera efectiva</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <div class="feature-icon red mx-auto">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h5 class="feature-title">Profesores Nativos</h5>
+                        <p>Todos nuestros profesores son hablantes nativos con experiencia en enseñanza y metodología
+                            activa.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <div class="feature-icon blue mx-auto">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h5 class="feature-title">Grupos Reducidos</h5>
+                        <p>Garantizamos atención personalizada con un máximo de 8 estudiantes por clase.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <div class="feature-icon yellow mx-auto">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h5 class="feature-title">Modalidad Híbrida</h5>
+                        <p>Flexibilidad para elegir entre clases presenciales, online o una combinación de ambas.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center">
+                        <div class="feature-icon red mx-auto">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h5 class="feature-title">Certificación Oficial</h5>
+                        <p>Preparación para exámenes oficiales y certificación reconocida internacionalmente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="text-center">
+                        <div class="feature-icon blue mx-auto">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h5 class="feature-title">Enfoque Comunicativo</h5>
+                        <p>Aprende a comunicarte desde el primer día con nuestro método práctico centrado en la
+                            conversación.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="text-center">
+                        <div class="feature-icon yellow mx-auto">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h5 class="feature-title">Recursos Exclusivos</h5>
+                        <p>Acceso a nuestra plataforma con recursos adicionales, ejercicios y material complementario.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="text-center">
+                        <div class="feature-icon red mx-auto">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h5 class="feature-title">Horarios Flexibles</h5>
+                        <p>Ofrecemos una amplia variedad de horarios para adaptarnos a tu agenda y necesidades.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-5" id="testimonios">
+        <div class="container">
+            <div class="section-header">
+                <h2>Lo que dicen nuestros estudiantes</h2>
+                <p>El éxito de nuestros estudiantes es nuestro mayor orgullo</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial h-100">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="mb-4">"Llevo 5 meses estudiando inglés en Alcaidiomas y ya puedo mantener
+                            conversaciones fluidas. La metodología es práctica y los profesores son increíbles.
+                            ¡Totalmente recomendado!"</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8cG9ydHJhaXQgbWFufHx8fHx8MTcwOTEyNDMxNQ&ixlib=rb-4.0.3&q=80&w=1080"
+                                class="testimonial-avatar me-3" alt="Roberto García">
+                            <div>
+                                <h6 class="mb-0">Roberto García</h6>
+                                <small class="text-muted">Estudiante de Inglés</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial h-100">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="mb-4">"El curso de francés ha superado todas mis expectativas. Los grupos reducidos
+                            permiten mucha práctica y los profesores nativos te corrigen constantemente. En 4 meses ya
+                            puedo tener conversaciones básicas."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8cG9ydHJhaXQgd29tYW58fHx8fHwxNzA5MTI0MzM2&ixlib=rb-4.0.3&q=80&w=1080"
+                                class="testimonial-avatar me-3" alt="Laura Mendoza">
+                            <div>
+                                <h6 class="mb-0">Laura Mendoza</h6>
+                                <small class="text-muted">Estudiante de Francés</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial h-100">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="mb-4">"Nunca pensé que aprender chino fuera posible para mí, pero con la metodología
+                            de Alcaidiomas y la paciencia de los profesores, estoy progresando mucho más rápido de lo
+                            que esperaba. Su enfoque hace que sea divertido y efectivo."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8cG9ydHJhaXQgbWFufHx8fHx8MTcwOTEyNDM1Ng&ixlib=rb-4.0.3&q=80&w=1080"
+                                class="testimonial-avatar me-3" alt="Carlos Jiménez">
+                            <div>
+                                <h6 class="mb-0">Carlos Jiménez</h6>
+                                <small class="text-muted">Estudiante de Chino</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light" id="registro">
+        <div class="container">
+            <div class="section-header">
+                <h2>Regístrate</h2>
+                <p>Crea tu cuenta para comenzar tu aventura lingüística.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <form id="registrationForm">
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="lastName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="regEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="regEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="birthdate" class="form-label">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" id="birthdate" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="regPassword" class="form-label">Contraseña</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="regPassword" required>
+                                <button type="button" class="btn btn-outline-secondary" onclick="togglePassword(this)">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="regPassword" class="form-label">Repetir Contraseña</label>
+                            <input type="password" class="form-control" id="regPasswordConfirm" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" >Registrarse</button>
+                    </form>
+                    <div id="regLoading" class="loading">…</div>
+                    <div id="regSuccess" class="alert alert-success mt-3" style="display:none;">
+                        ¡Registro exitoso! Inicie sesión para continuar.
+                    </div>
+                    <div id="regError" class="alert alert-danger mt-3" style="display:none;">
+                        Error al registrar. Intenta nuevamente.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+                    </form>
+                    <div id="loginError" class="alert alert-danger mt-3" style="display:none;">
+                        Credenciales incorrectas.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="pt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="mb-4"><span class="text-red">Alca</span><span class="text-yellow">idiomas</span></h4>
+                    <p class="text-white-50 mb-4">Abriendo puertas a un mundo de oportunidades a través del aprendizaje
+                        de idiomas desde 2010.</p>
+                    <div class="d-flex">
+                        <a href="#" class="social-icon me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="footer-heading">Enlaces rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#inicio" class="footer-link">Inicio</a></li>
+                        <li><a href="#cursos" class="footer-link">Cursos</a></li>
+                        <li><a href="#por-que-nosotros" class="footer-link">Por qué elegirnos</a></li>
+                        <li><a href="#testimonios" class="footer-link">Testimonios</a></li>
+                        <li><a href="#contacto" class="footer-link">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="footer-heading">Cursos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Inglés</a></li>
+                        <li><a href="#" class="footer-link">Francés</a></li>
+                        <li><a href="#" class="footer-link">Italiano</a></li>
+                        <li><a href="#" class="footer-link">Chino</a></li>
+                        <li><a href="#" class="footer-link">Alemán</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-lg-4">
+                    <h5 class="footer-heading">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="footer-link mb-2"><i class="fas fa-map-marker-alt me-2"></i> Av. Independencia 1234,
+                            Mendoza, Argentina</li>
+                        <li class="footer-link mb-2"><i class="fas fa-phone me-2"></i> +54 261 1234567</li>
+                        <li class="footer-link mb-2"><i class="fas fa-envelope me-2"></i> info@alcaidiomas.com</li>
+                        <li class="footer-link"><i class="fas fa-clock me-2"></i> Lun-Vie: 9:00-20:00, Sáb: 9:00-14:00
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="border-top border-secondary pt-4">
+                        <p class="text-center text-white-50 mb-0">© 2025 Alcaidiomas. Todos los derechos reservados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetSelector = this.getAttribute('href');
+                    if (!targetSelector || targetSelector === '#') {
+                        return;
+                    }
+                    e.preventDefault();
+                    document.querySelector(targetSelector).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+    <script>
+        function togglePassword(button) {
+            const input = button.closest('.input-group').querySelector('input');
+            const icon = button.querySelector('i');
+            const show = input.type === 'password';
+
+            input.type = show ? 'text' : 'password';
+            icon.className = show ? 'fa fa-eye-slash' : 'fa fa-eye';
+        }
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
